@@ -85,13 +85,13 @@ class HyperBand():
             n = int(ceil(B / self.max_iter / (s+1) * eta**s))
             r = self.max_iter * eta**(-s)
 
-            print 'Running outer loop loop with: %d %d' % (n, r)
+            print('Running outer loop loop with: %d %d' % (n, r))
             learners = [random_learner() for i in range(n)]
             for i in range(s+1):
                 n_i = n * eta**(-i)
                 r_i = int(r * eta**(i))
-                print 'Running inner loop with: n_i=%d r_i=%d len(learners)=%d' % \
-                    (n_i, r_i, len(learners))
+                print('Running inner loop with: n_i=%d r_i=%d len(learners)=%d' % \
+                    (n_i, r_i, len(learners)))
                 val_losses = [learner.run_iters(r_i) for learner in learners]
 
                 # Unfortunate -_-

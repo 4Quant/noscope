@@ -40,7 +40,7 @@ def VideoHistIterator(video_fname, scale=None, start=0):
 
 def get_all_frames(num_frames, video_fname, scale=None, interval=1, start=0, dtype='float32'):
     true_num_frames = int(ceil((num_frames + 0.0) / interval))
-    print '%d total frames / %d frame interval = %d actual frames' % (num_frames, interval, true_num_frames)
+    print('%d total frames / %d frame interval = %d actual frames' % (num_frames, interval, true_num_frames))
     vid_it = VideoIterator(video_fname, scale=scale, interval=interval, start=start)
 
     _, frame = vid_it.next()

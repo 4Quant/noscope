@@ -34,7 +34,7 @@ def run_speed_test(model, batch_sizes=[16, 32, 64, 128, 256],
         _ = model.predict(data, batch_size=batch_size)
         end = time.time()
         total_time = end - begin
-        print 'Batch size: %d, FPS: %f' % (batch_size, nb_images / total_time)
+        print('Batch size: %d, FPS: %f' % (batch_size, nb_images / total_time))
 
 
 def main():

@@ -156,7 +156,7 @@ def run_model(model, data, batch_size=32, nb_epoch=1, patience=2,
         validation_split = 0.33333333
         if len(Y_train) * validation_split > 50000.0:
             validation_split = 50000.0 / float(len(Y_train))
-        print validation_split
+        print(validation_split)
 
         begin_train = time.time()
         model.fit(X_train, Y_train,
@@ -241,7 +241,7 @@ def evaluate_model_regression(model, X_test, Y_test, batch_size=256):
         proba = np.concatenate([1 - predictions, predictions], axis=1)
         metrics = stats_from_proba(proba, Y_classes)
         metrics['cutoff'] = cutoff
-        print 'Cutoff: %f, metrics: %s' % (cutoff, str(metrics))
+        print('Cutoff: %f, metrics: %s' % (cutoff, str(metrics)))
         if metrics['accuracy'] > best['accuracy']:
             best = metrics
 
@@ -347,10 +347,9 @@ def try_params(model_gen, params, data,
         model.save(model_fname)
 
         to_write.append(list(param[2:]) + [train_time] + metrics_to_list(metrics))
-        print param
-        print train_time, metrics
-        print
-    print to_write
+        print(param)
+        print(train_time, metrics)
+    print(to_write)
     # First two params don't need to be written out
     param_column_names = map(lambda i: 'param' + str(i), xrange(len(params[0]) - 2))
     column_names = param_column_names + ['train_time'] + metrics_names(metrics)
